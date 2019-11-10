@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/cultive-se-front/static/css/main.b100e6da.chunk.css",
+    "main.js": "/cultive-se-front/static/js/main.81c7ff92.chunk.js",
+    "main.js.map": "/cultive-se-front/static/js/main.81c7ff92.chunk.js.map",
+    "runtime-main.js": "/cultive-se-front/static/js/runtime-main.e98da09c.js",
+    "runtime-main.js.map": "/cultive-se-front/static/js/runtime-main.e98da09c.js.map",
+    "static/js/2.fc7da35d.chunk.js": "/cultive-se-front/static/js/2.fc7da35d.chunk.js",
+    "static/js/2.fc7da35d.chunk.js.map": "/cultive-se-front/static/js/2.fc7da35d.chunk.js.map",
+    "index.html": "/cultive-se-front/index.html",
+    "precache-manifest.779896d857023642385f1a4be74c72c2.js": "/cultive-se-front/precache-manifest.779896d857023642385f1a4be74c72c2.js",
+    "service-worker.js": "/cultive-se-front/service-worker.js",
+    "static/css/main.b100e6da.chunk.css.map": "/cultive-se-front/static/css/main.b100e6da.chunk.css.map"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.e98da09c.js",
+    "static/js/2.fc7da35d.chunk.js",
+    "static/css/main.b100e6da.chunk.css",
+    "static/js/main.81c7ff92.chunk.js"
+  ]
+}
