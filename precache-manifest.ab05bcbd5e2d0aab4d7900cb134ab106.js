@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "3403b2688d445ac87385bdae9b32bc1f",
+    "revision": "48350b6283522b91cc8383f92e02f1b0",
     "url": "/cultive-se-front/index.html"
   },
   {
-    "revision": "05ff0aaf353fde91258d",
+    "revision": "a8633cdc1c0b34614a73",
     "url": "/cultive-se-front/static/css/main.b100e6da.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/cultive-se-front/static/js/2.c8d2ddca.chunk.js"
   },
   {
-    "revision": "05ff0aaf353fde91258d",
-    "url": "/cultive-se-front/static/js/main.add908e6.chunk.js"
+    "revision": "a8633cdc1c0b34614a73",
+    "url": "/cultive-se-front/static/js/main.6f83406d.chunk.js"
   },
   {
     "revision": "79d3dd3a83d556ad6361",
