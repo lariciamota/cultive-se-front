@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Header, Grid, Label, Segment } from "semantic-ui-react";
+import { Header, Grid, Label, Segment, Image } from "semantic-ui-react";
 import {
   LineChart,
   Line,
@@ -16,7 +16,8 @@ export default class Charts extends Component {
     this.state = {
       temperature: [],
       humidity_air: [],
-      humidity_soil: []
+      humidity_soil: [],
+      luminosity: []
     };
 
     this.webSocket = local
@@ -32,18 +33,19 @@ export default class Charts extends Component {
       const temperature = state.temperature.concat(newData.temperature);
       const humidity_air = state.humidity_air.concat(newData.humidity_air);
       const humidity_soil = state.humidity_soil.concat(newData.humidity_soil);
+      const luminosity = state.luminosity.concat(newData.luminosity);
 
       return {
         temperature,
         humidity_air,
-        humidity_soil
+        humidity_soil,
+        luminosity
       };
     });
 
     if (this.state.temperature.length > 10) {
       this.removeFirst();
     }
-    // console.log(this.state);
   }
 
   removeFirst() {
@@ -51,11 +53,13 @@ export default class Charts extends Component {
       const [, ...temperature] = state.temperature;
       const [, ...humidity_air] = state.humidity_air;
       const [, ...humidity_soil] = state.humidity_soil;
+      const [, ...luminosity] = state.luminosity;
 
       return {
         temperature,
         humidity_air,
-        humidity_soil
+        humidity_soil,
+        luminosity
       };
     });
   }
@@ -86,24 +90,29 @@ export default class Charts extends Component {
 
     return (
       <div className="Charts">
-        <Header as="h2" content="Cultive-se" subheader="Dashboard" dividing />
+        <Header as="h1" dividing>
+          <Image src="leaf.png" />
+          <Header.Content>Cultive-se</Header.Content>
+          <Header.Subheader>Dashboard</Header.Subheader>
+        </Header>
 
         <Grid columns={2} padded>
           <Grid.Row>
             <Grid.Column>
               <Segment>
-                <Label attached="top left">Umidade do ar</Label>
+                <Label attached="top left">Air Humidity</Label>
                 <LineChart
                   width={730}
-                  height={250}
+                  height={255}
                   data={createData(this.state.humidity_air)}
                   margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
                 >
                   <CartesianGrid strokeDasharray="3 3" />
-                  <XAxis />
-                  <YAxis dataKey="value" />
+                  <XAxis label="Readings" height={55} />
+                  <YAxis label="%" dataKey="value" width={90} />
                   <Tooltip />
                   <Line
+                    name="air humidity"
                     type="monotone"
                     dataKey="value"
                     stroke="#8884d8"
@@ -115,18 +124,19 @@ export default class Charts extends Component {
 
             <Grid.Column>
               <Segment>
-                <Label attached="top left">Umidade do solo</Label>
+                <Label attached="top left">Soil Humidity</Label>
                 <LineChart
                   width={730}
-                  height={250}
+                  height={255}
                   data={createData(this.state.humidity_soil)}
                   margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
                 >
                   <CartesianGrid strokeDasharray="3 3" />
-                  <XAxis />
-                  <YAxis dataKey="value" />
+                  <XAxis label="Readings" height={55} />
+                  <YAxis label="%" dataKey="value" width={90} />
                   <Tooltip />
                   <Line
+                    name="soil humidity"
                     type="monotone"
                     dataKey="value"
                     stroke="#8884d8"
@@ -140,18 +150,19 @@ export default class Charts extends Component {
           <Grid.Row>
             <Grid.Column>
               <Segment>
-                <Label attached="top left">Temperatura</Label>
+                <Label attached="top left">Temperature</Label>
                 <LineChart
                   width={730}
-                  height={250}
+                  height={255}
                   data={createData(this.state.temperature)}
                   margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
                 >
                   <CartesianGrid strokeDasharray="3 3" />
-                  <XAxis />
-                  <YAxis dataKey="value" />
+                  <XAxis label="Readings" height={55} />
+                  <YAxis label="ºC" dataKey="value" width={90} />
                   <Tooltip />
                   <Line
+                    name="temperature"
                     type="monotone"
                     dataKey="value"
                     stroke="#8884d8"
@@ -163,18 +174,19 @@ export default class Charts extends Component {
 
             <Grid.Column>
               <Segment>
-                <Label attached="top left">Luminosidade AINDA NAO</Label>
+                <Label attached="top left">Luminosity</Label>
                 <LineChart
                   width={730}
-                  height={250}
-                  data={createData(this.state.temperature)}
+                  height={255}
+                  data={createData(this.state.luminosity)}
                   margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
                 >
                   <CartesianGrid strokeDasharray="3 3" />
-                  <XAxis />
-                  <YAxis dataKey="value" />
+                  <XAxis label="Readings" height={55} />
+                  <YAxis label="%" dataKey="value" width={90} />
                   <Tooltip />
                   <Line
+                    name="luminosity"
                     type="monotone"
                     dataKey="value"
                     stroke="#8884d8"
