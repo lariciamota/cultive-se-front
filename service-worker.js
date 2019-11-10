@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/cultive-se-front/precache-manifest.779896d857023642385f1a4be74c72c2.js"
+  "/cultive-se-front/precache-manifest.077789af4c160d16341011243c9ec212.js"
 );
 
 self.addEventListener('message', (event) => {
