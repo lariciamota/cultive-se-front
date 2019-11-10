@@ -8,11 +8,12 @@ import {
   CartesianGrid,
   Tooltip
 } from "recharts";
+import leaf from "./leaf.png";
 
 export default class Charts extends Component {
   constructor(props) {
     super(props);
-    const local = true;
+    const local = false;
     this.state = {
       temperature: [],
       humidity_air: [],
@@ -22,7 +23,7 @@ export default class Charts extends Component {
 
     this.webSocket = local
       ? new WebSocket("ws://localhost:8081/public/metrics")
-      : new WebSocket("ws://10.0.202.227:8081/public/metrics");
+      : new WebSocket("wss://cultive-se-server.herokuapp.com/public/metrics");
 
     this.updateState = this.updateState.bind(this);
     this.removeFirst = this.removeFirst.bind(this);
@@ -91,7 +92,7 @@ export default class Charts extends Component {
     return (
       <div className="Charts">
         <Header as="h1" dividing>
-          <Image src="leaf.png" />
+          <Image src={leaf} />
           <Header.Content>Cultive-se</Header.Content>
           <Header.Subheader>Dashboard</Header.Subheader>
         </Header>
